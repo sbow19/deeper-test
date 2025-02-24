@@ -1,0 +1,114 @@
+openapi: '3.0.3'
+info:
+  title: Deeper API Specification
+  version: '1.0'
+servers:
+  - url: localhost://127.0.0.1/
+paths:
+  /users/getall:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/User'
+  /users/{id}/update:
+    post:
+      summary: Submit new user details
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            minimum: 1
+      requestBody:
+        description: User details to update
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses: 
+        '200':
+          description: OK
+        
+        '400':
+          description: Incorrect details
+  
+  /users/create:
+    post:
+      summary: Create New User
+      requestBody:
+        description: User details to create new user
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses: 
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                  message:
+                    type: string
+        '400':
+          description: Failed to create user
+        
+    
+  /users/{id}/delete:
+    post:
+      summary: Delete user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            minimum: 1
+      responses: 
+        '200':
+          description: OK
+        '400':
+          description: Incorrect details
+        
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        roles:
+          type: array
+        is_user_admin:
+          type: boolean
+        is_user_tester:
+          type: boolean
+        is_user_manager:
+          type: boolean
+        timezone:
+          type: integer
+        last_updated_at:
+          type: integer
+        created_at:
+          type: integer
+        
+        
+        
+
+
