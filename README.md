@@ -57,23 +57,23 @@ pip install
 
 ### Testing Strategy
     
-    I tried to implement a test-based approach to building up the project as much as possible. Naturally, I implemented different testing strategies for both the frontend and backend portions of the project
+I tried to implement a test-based approach to building up the project as much as possible. Naturally, I implemented different testing strategies for both the frontend and backend portions of the project
 
-    + *import_data*
-        - I devised a test suite to see whether I had a valid connection to the MongoDB server, and whether the data from the json file had the correct shape.
-        - I separated the testing databases from the "production" version.
-        - To run the test suite, navigate to import_data/ directory, and activate the Python venv there. Then run pytest.
-        - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
++ *import_data*
+    - I devised a test suite to see whether I had a valid connection to the MongoDB server, and whether the data from the json file had the correct shape.
+    - I separated the testing databases from the "production" version.
+    - To run the test suite, navigate to import_data/ directory, and activate the Python venv there. Then run pytest.
+    - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
 
-    + *Backend*
-        - I need to mock a Flask app instance and send dummy data to the applicaiton in the test. To do so I reviewd the testing guidelines provided in the Flask documentation.
-        - I created a tests/ subdirectory in the backend folder to contain my test code.
-        - There, I tested the create, update, deleted, read methods. 
-        - To run the test suite, navigate to backend/ directory, and activate the Python venv there. Then run pytest.
-        - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
-    
-    + *Frontend*
-        - I was unable to write any tests for the frontend portion of the task, however I had considered a strategy to do. In particular I was considering using jest to mock fetch requests to the local server, and then run assertion tests on what is rendered on the screen given a response. 
++ *Backend*
+    - I need to mock a Flask app instance and send dummy data to the applicaiton in the test. To do so I reviewd the testing guidelines provided in the Flask documentation.
+    - I created a tests/ subdirectory in the backend folder to contain my test code.
+    - There, I tested the create, update, deleted, read methods. 
+    - To run the test suite, navigate to backend/ directory, and activate the Python venv there. Then run pytest.
+    - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
+
++ *Frontend*
+    - I was unable to write any tests for the frontend portion of the task, however I had considered a strategy to do. In particular I was considering using jest to mock fetch requests to the local server, and then run assertion tests on what is rendered on the screen given a response. 
 
 
 ### Open API Specifcation
