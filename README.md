@@ -5,18 +5,19 @@
 
 I will begin by setting out a list of steps I took to approach this task, setting out my thought process as clearly and comprenhensively as I can.
 
-I was unable to completely finish the project in the alloted time, as I was unable to properly connect the front end portions with the backend. 
+I was unable to completely finish the project in the alloted time, as I was unable to properly connect the frontend portions with the backend. 
 
-Throughout the duration of the test, I tried to implement test-driven development, and was able to do so for the data importation and backend endpoint development. When I began developing the front end portion, I found myself running out of time, and as I am not too familiar with Vue.js I was running in the various bugs which experience would eliminate. 
+Throughout the test, I tried to implement test-driven development and was able to do so for the data importation and backend endpoint development. When I began developing the frontend portion, I found myself running out of time, and as I am not too familiar with Vue.js and Flask, I was running in the various bugs which experience would eliminate. 
+
+I am extremely grateful for the opportunity to carry out this task, as it has been a fantastic learning experience for me. 
 
 ## HOW TO SET UP THE PROJECT
 
 **Linux**
 
-To install dependencies for the frontend portion, run the following
+To install dependencies for the frontend portion, run the following in the frontend/deeper-fe directory
 
 ```bash
-cd frontend
 npm run install
 ```
 
@@ -41,12 +42,12 @@ pip install
 
 ### Set out project structure
 
-+ The first thing I did was set up a MongoDB instance on my local machine. To do so I downloaded the official Mongo Docker image, and ran the container. 
++ The first thing I did was set up a MongoDB instance on my local machine. I downloaded the official Mongo Docker image and ran the container. 
 
 + My project root is the Test/ directory. I initialised a Git repo for this directory.
 
 + I added three sub-directories to manage the project:
-    - backend/ (including code relating to importing data)
+    - backend/
     - frontend/
     - import_data/
 
@@ -56,11 +57,11 @@ pip install
 
 ### Testing Strategy
     
-    As much as possible, I tried to implement a test-based approach to building up the project. Naturally, I implemented different testing strategies for both the frontend and backend portions of the project
+    I tried to implement a test-based approach to building up the project as much as possible. Naturally, I implemented different testing strategies for both the frontend and backend portions of the project
 
-    + *Import*
+    + *import_data*
         - I devised a test suite to see whether I had a valid connection to the MongoDB server, and whether the data from the json file had the correct shape.
-        - I separated the testing databases from the "production" version
+        - I separated the testing databases from the "production" version.
         - To run the test suite, navigate to import_data/ directory, and activate the Python venv there. Then run pytest.
         - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
 
@@ -72,7 +73,7 @@ pip install
         - You will need to configure the MONGODB_SETTINGS in the conftest.py file to ensure you have a connection to a live MongoDB  server instance.
     
     + *Frontend*
-        - I was unable to write any tests for the frontend portion of the task, howveer I had considered a strategy to do. In particular I was considering using jest to mock fetch requests to the local server, and then run assertion tests on what is rendered on the screen given a response. 
+        - I was unable to write any tests for the frontend portion of the task, however I had considered a strategy to do. In particular I was considering using jest to mock fetch requests to the local server, and then run assertion tests on what is rendered on the screen given a response. 
 
 
 ### Open API Specifcation
@@ -81,17 +82,17 @@ pip install
 
 ### Running the project
 
-+ Before beginning, you will need to run the data import code. You will need to configure the .env file located under import_data/src directory to ensure you are connected to a server.
++ Before beginning, you will need to run the data import code. You will need to configure the .env file located under import_data/src and backend/f_app directories to ensure you are connected to a server.
 
-+ Then to import the data, navigate up to the import_data/src directory, an  run python import_data.py
++ Then to import the data, navigate up to the import_data/src directory, and run python import_data.py
 
-+ After the import is successful, navigate into the frontend/deeper-fe/ directory to land in the frontend development area. Then to build the project, run npm run build. This will output the static build files to the backend/static/ directorr
++ After the import is successful, navigate into the frontend/deeper-fe/ directory to land in the frontend development area. Then to build the project, run npm run build. This will output the static build files to the backend/static/ directory.
 
 + To run the Flask server and server the frontend code, navigate to the backend/ directory, enter the python venv there, and run flask --app f_app run. This will start an instance of the flask server and will be accessible on 127.0.0.1:5000 in your browser. 
 
 
 ## Summary
 
-+ I realised that I spent a lot of time debugging issues which I have not had much experience with in the recent past, such as API development and frontend - backend communication. With that said, I am extremely happy to have taken part in the project, and I am motivated to continue building on my fullstack development skills.
++ I realised that I spent a lot of time debugging issues which I have not had much experience with in the recent past, such as API development and frontend - backend communication. With that said, I am extremely happy to have taken part in the task and I am motivated to continue building on my fullstack development skills.
 
 
